@@ -25,15 +25,15 @@ Timezone="Europe/Rome"
 ##############################################################################
 
 function log_info() {
-    echo "${W}info:${W}" $0
+    echo ${W}"info:"${W} $1
 } 
 
 function log_warning() {
-    echo "${Y}warning:${W}" $0
+    echo ${Y}"warning:"${W} $1
 }
 
 function log_error() {
-    echo "${R}error:${W}" $0
+    echo ${R}"error:"${W} $1
     exit -1
 }
 
