@@ -58,9 +58,9 @@ parted -l | column -t | paste -d " " - - | sed 's,ATA, ,' | awk '$0 ~ /Model/ { 
 read -r -p "disk (e.g. sda): " Disk
 
 log_warning "disk ${C}/dev/${Disk}${W} will be ${R}erased${W}"
-read -r -p "are you sure you want to proceed? (Y/n) " Confirmation 
+read -r -p log_info "are you sure you want to proceed? (Y/n) " Confirmation 
 
-if [[ "${Confirmation}" -ne "Y"]]; then
+if [[ "${Confirmation}" != "Y"]]; then
     log_info "installation aborted."
     exit 0
 fi
