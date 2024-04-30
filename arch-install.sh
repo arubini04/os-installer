@@ -7,11 +7,11 @@ set -e
 ##############################################################################
 
 # Term colors
-W='\e[0m'  # White
-R='\e[91m' # Red
-G='\e[92m' # Green
-B='\e[96m' # Blue
-Y='\e[93m' # Yellow
+W='\033[0m'  # White (No Color)
+R='\033[0;31m' # Red
+G='\033[0;32m' # Green
+B='\033[0;34m' # Blue
+Y='\033[1;33m' # Yellow
 
 # System
 Username="arubini"
