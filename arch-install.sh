@@ -60,7 +60,7 @@ read -r -p "disk (e.g. sda): " Disk
 log_warning "disk ${C}/dev/${Disk}${W} will be ${R}erased${W}"
 read -r -p "are you sure you want to proceed? (Y/n) " Confirmation 
 
-if [[ "${Confirmation}" != "Y"]]; then
+if [[ "${Confirmation}" != "y" ]]; then
     log_info "installation aborted."
     exit 0
 fi
