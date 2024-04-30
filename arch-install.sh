@@ -25,15 +25,15 @@ Timezone="Europe/Rome"
 ##############################################################################
 
 function log_info() {
-    echo ${W}"info:"${W} $1
+    echo -e ${W}"info:"${W} $1
 } 
 
 function log_warning() {
-    echo ${Y}"warning:"${W} $1
+    echo -e ${Y}"warning:"${W} $1
 }
 
 function log_error() {
-    echo ${R}"error:"${W} $1
+    echo -e ${R}"error:"${W} $1
     exit -1
 }
 
@@ -60,7 +60,7 @@ read -r -p "disk (e.g. sda): " Disk
 log_warning "disk ${B}/dev/${Disk} will be ${R}erased${W}"
 read -r -p "are you sure you want to proceed? (Y/n)" Confirmation 
 
-if [[ "${Confirmation}" != "Y"]] then
+if [[ "${Confirmation}" -ne "Y"]] then
     log_info "installation aborted."
     exit 0
 fi
