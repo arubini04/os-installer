@@ -8,9 +8,9 @@ set -e
 
 # Term colors
 W='\033[0m'  # White (No Color)
-R='\033[0;31m' # Red
+R='\033[1;31m' # Red
 G='\033[0;32m' # Green
-B='\033[0;34m' # Blue
+C='\033[0;36m' # Cyan
 Y='\033[1;33m' # Yellow
 
 # System
@@ -25,7 +25,7 @@ Timezone="Europe/Rome"
 ##############################################################################
 
 function log_info() {
-    echo -e ${W}"info:"${W} $1
+    echo -e ${C}"info:"${W} $1
 } 
 
 function log_warning() {
@@ -54,10 +54,10 @@ timedatectl set-ntp true
 #######################################
 
 log_info "choose a disk:"
-parted -l | column -t | paste -d " " - - | sed 's,ATA, ,' | awk '$0 ~ /Model/ { print $(NF - 1)" "$2" "$3" "$NF}' | column -t
+parted -l | column -t | paste -d " " - - | sed 's,ATA, ,' | awk '$0 ~ /Model/ { print ${Y}$(NF - 1)${W}" "$2" "$3" "$NF}' | column -t
 read -r -p "disk (e.g. sda): " Disk
 
-log_warning "disk ${B}/dev/${Disk} will be ${R}erased${W}"
+log_warning "disk ${C}/dev/${Disk}${W} will be ${R}erased${W}"
 read -r -p "are you sure you want to proceed? (Y/n)" Confirmation 
 
 if [[ "${Confirmation}" -ne "Y"]] then
