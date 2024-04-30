@@ -53,9 +53,9 @@ timedatectl set-ntp true
 # Disk Partition
 #######################################
 
-log_info "choose a disk (eg. sda):"
+log_info "choose a disk:"
 parted -l | column -t | paste -d " " - - | sed 's,ATA, ,' | awk '$0 ~ /Model/ { print $(NF - 1)" "$2" "$3" "$NF}' | column -t
-read -r -p "disk: " Disk
+read -r -p "disk (e.g. sda): " Disk
 
 log_warning "disk ${B}/dev/${Disk} will be ${R}erased${W}"
 read -r -p "are you sure you want to proceed? (Y/n)" Confirmation 
